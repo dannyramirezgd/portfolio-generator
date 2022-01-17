@@ -1,8 +1,30 @@
 const inquirer = require('inquirer');
-// const fs = require('fs');
-// const generatePage = require('./src/page-template');
-
-// const pageHTML = generatePage(name, github);
+const fs = require('fs');
+const generatePage = require('./src/page-template');
+const mockData = {
+    name: 'Danny',
+    github: 'dannyramirezgd',
+    confirmAbout: true,
+    about: 'I am gewd codurr',
+    projects: [
+        {
+            name:'Karaoke Made Easy',
+            description: 'We sing awhsum',
+            languages: ['JS', 'CSS', 'HTML'],
+            link: "https://dannyramirezgd.github.io/karaoke-web-app",
+            feature: true,
+            confirmAddProject: true
+        },
+        {
+            name:'Run-Buddy',
+            description: 'find someone to run with',
+            languages: ['JS', 'CSS', 'HTML'],
+            link: "https://dannyramirezgd.github.io/run-buddy",
+            feature: false,
+            confirmAddProject: false,
+        }
+    ]
+}
 
 const promptUser = () => {
     return inquirer.prompt([
@@ -129,12 +151,17 @@ const promptProject = portfolioData => {
         }
     });
 };
-promptUser()
-.then(promptProject)
-.then(portfolioData => {
-    console.log(portfolioData);
-});
-// fs.writeFile('index.html', pageHTML, err =>{
-//     if (err) throw err;
-//     console.log('Portfolio complete! Check out index.html to see the output!');
+// promptUser()
+// .then(promptProject)
+// .then(portfolioData => {
+//     const pageHtml = generatePage(portfolioData);
+//     // fs.writeFile('index.html', pageHTML, err =>{
+//     //     if (err) throw err;
+//     //     console.log('Portfolio complete! Check out index.html to see the output!');
+//     // });
 // });
+const pageHTML = generatePage(mockData);
+fs.writeFile('index.html', pageHTML, err =>{
+        if (err) throw err;
+        console.log('Portfolio complete! Check out index.html to see the output!');
+});
