@@ -18,5 +18,6 @@
   "homepage": "https://github.com/dannyramirezgd/portfolio-generator#readme",
   "dependencies": {
     "inquirer": "^8.2.0"
-  }
+  },
+  "keywords": []
 }

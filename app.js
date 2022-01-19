@@ -155,13 +155,13 @@ const promptProject = portfolioData => {
 // .then(promptProject)
 // .then(portfolioData => {
 //     const pageHtml = generatePage(portfolioData);
-//     // fs.writeFile('index.html', pageHTML, err =>{
+//     // fs.writeFile('./dist/index.html', pageHTML, err =>{
 //     //     if (err) throw err;
 //     //     console.log('Portfolio complete! Check out index.html to see the output!');
 //     // });
 // });
 const pageHTML = generatePage(mockData);
-fs.writeFile('index.html', pageHTML, err =>{
+fs.writeFile('./dist/index.html', pageHTML, err =>{
         if (err) throw err;
         console.log('Portfolio complete! Check out index.html to see the output!');
 });
